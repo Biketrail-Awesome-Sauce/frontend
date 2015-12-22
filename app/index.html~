@@ -44,7 +44,7 @@
 
     <div class="row">
         <div id="map" full-screen-map class="col-md-12"></div>
-
+	<div ng-controller="searchCtlr" search-box-directive></div>
         <div id="route_names" class="col-md-3"></div>
     </div>
 </div>
@@ -70,6 +70,8 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
 	<script src="scripts/SearchResults/SearchController.js"></script>
+	<script src="scripts/SearchResults/SearchFactory.js"></script>
+	<script src="scripts/SearchResults/SearchDirective.js"></script>
 	<script src="scripts/Locate/locationController.js"></script>
 	<script src="scripts/Locate/locationDirective.js"></script>
         <!-- endbuild -->

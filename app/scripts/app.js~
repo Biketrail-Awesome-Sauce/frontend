@@ -10,12 +10,5 @@
  */
 angular
   .module('mnbikewaysMap', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
+    'ui.bootstrap.typeahead'
   ]);

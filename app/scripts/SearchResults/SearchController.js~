@@ -1,3 +1,16 @@
 'use strict';
 
-angular.module('mnbikewaysMap').controller('searchCtlr', ['$scope', '$http', 'ui.bootstrap.typeahead', function($scope, $http, ui.bootstrap.typeahead){}]);
+angular.module('mnbikewaysMap').controller('searchCtlr', ['$scope', 'mnSearchFactory', function($scope, mnSearchFactory) {
+
+      $scope.searchBiketrails = function(val) {
+        
+	return mnSearchFactory.searchBackend(val);
+}
+
+        $scope.selectedFromSearch = new Array();
+        $scope.onSelect = function($item, $model, $label) {
+          if ($scope.selectedFromSearch.length != 2) {
+            $scope.selectedFromSearch.push($item);
+          }
+        };
+      }]);

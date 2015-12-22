@@ -10,5 +10,5 @@
  */
 angular
   .module('mnbikewaysMap', [
-    'ui.bootstrap.typeahead'
+    'ui.bootstrap'
   ]);
