@@ -1,0 +1,3 @@
+'use strict';
+
+angular.module('mnbikewaysMap').controller('searchCtlr', ['$scope', '$http', 'ui.bootstrap.typeahead', function($scope, $http, ui.bootstrap.typeahead){}]);
