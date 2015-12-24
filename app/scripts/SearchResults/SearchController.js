@@ -3,7 +3,7 @@
 angular.module('mnbikewaysMap').controller('searchCtlr', ['$scope', 'mnSearchFactory', function($scope, mnSearchFactory) {
 
       $scope.searchBiketrails = function(val) {
-        
+
 	return mnSearchFactory.searchBackend(val, $scope.latitude, $scope.longitude);
 }
 

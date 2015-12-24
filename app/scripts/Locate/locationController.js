@@ -4,6 +4,8 @@ angular.module('mnbikewaysMap').controller('findLocationCtlr', ['$scope', '$wind
       navigator.geolocation.getCurrentPosition(function(position) {
           $scope.latitude = position.coords.latitude;
           $scope.longitude = position.coords.longitude;
+          $scope.isSearchCollapsed=false;
+
           $window.map = L.map('map', {
             center: [$scope.latitude, $scope.longitude],
             zoom: 16,

@@ -36,7 +36,7 @@
       <div id="logo"></div>
       <div id="headerTitle">MNBikeways</div>
       <div id="search">
-        <img src="/images/search.png" alt="Search Icon"
+        <img src="/images/search.png" alt="Search Icon" ng-click="isSearchCollapsed=!isSearchCollapsed"
              class="searchImage"/>
       </div>
     </div>
@@ -44,7 +44,7 @@
 
   <div id="map_wrapper" class="row" ng-controller="nicerideCtlr">
     <div id="map" full-screen-map class="col-md-12"></div>
-    <div id="search_wrapper" ng-controller="searchCtlr" class="col-md-4">
+    <div id="search_wrapper" uib-collapse="!isSearchCollapsed" ng-controller="searchCtlr" class="col-md-4 collapse">
       <search-box-directive></search-box-directive>
     </div>
     <div id="route_names" class="col-md-3"></div>
