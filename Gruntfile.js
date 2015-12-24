@@ -8,8 +8,9 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-
-  // Time how long tasks take. Can help when optimizing build times
+var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+  grunt.loadNpmTasks('grunt-connect-proxy');
+// Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
   // Automatically load required Grunt tasks
@@ -76,22 +77,50 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
+	proxies: [
+                {
+                    context: '/searchAjax/',
+                    host: '0.0.0.0',
+                    port: 32769,
+		    xforward: true,
+		    changeOrigin:true,		
+		    headers: {
+                  	'host': '0.0.0.0'
+              		}
+
+                },
+		{
+                    context: '/NR/',
+                    host: '0.0.0.0',
+                    port: 32769,
+		    xforward: true,
+		    changeOrigin:true,		
+		    headers: {
+                  	'host': '0.0.0.0'
+              		}
+
+                }
+            ],
       livereload: {
         options: {
           open: true,
           middleware: function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect().use(
+		var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
+              middlewares.push(connect.static('.tmp'));
+              middlewares.push(connect().use(
                 '/bower_components',
                 connect.static('./bower_components')
-              ),
-              connect().use(
+              ));
+
+	        middlewares.push(connect().use(
                 '/app/styles',
                 connect.static('./app/styles')
-              ),
-              connect.static(appConfig.app)
-            ];
+              ));
+		middlewares.push(
+              connect.static(appConfig.app));
+		middlewares.push(proxySnippet);
+		return middlewares;
+           
           }
         }
       },
@@ -437,6 +466,7 @@ module.exports = function (grunt) {
       'clean:server',
       'wiredep',
       'concurrent:server',
+      'configureProxies:server',
       'postcss:server',
       'connect:livereload',
       'watch'

@@ -10,5 +10,11 @@
  */
 angular
   .module('mnbikewaysMap', [
-    'ui.bootstrap'
-  ]);
+    'ui.bootstrap',
+    'apiMock'
+  ]).config(function (apiMockProvider) {
+  apiMockProvider.config({
+    apiPath: '',
+    mockDataPath: '~/app/mock_data'
+  });
+});

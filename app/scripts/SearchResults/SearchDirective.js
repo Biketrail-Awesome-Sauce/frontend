@@ -2,7 +2,7 @@
 
 angular.module('mnbikewaysMap').directive('searchBoxDirective', function(){
 	return {
-		replace: 'false',
+		replace: 'true',
 		templateUrl: 'views/searchbox.html'
 		}
 });
