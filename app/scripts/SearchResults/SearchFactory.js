@@ -2,7 +2,7 @@
 
 angular.module('mnbikewaysMap').factory('mnSearchFactory', ['$http', function($http) {
   return {searchBackend : function(val, latitude, longitude) {
-    $http.get('/searchAjax/', {
+    return $http.get('/searchAjax/', {
       params: {
         q: val,
         lat: latitude,
