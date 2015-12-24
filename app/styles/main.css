@@ -104,4 +104,17 @@ body {
         .inline {
             display: inline;
         }
-    
+
+        #map_wrapper {
+          position: relative;
+        }
+
+        #search_wrapper {
+          position: absolute;
+          top: 8px;
+          right: 10px;
+        }
+
+       .dropdown-menu > li > a {
+          white-space: pre-wrap;
+        }
