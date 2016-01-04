@@ -32,7 +32,7 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
     // Project settings
     yeoman: appConfig,
 
-    
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -81,9 +81,9 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
                 {
                     context: '/searchAjax/',
                     host: '0.0.0.0',
-                    port: 32769,
+                    port: 32768,
 		    xforward: true,
-		    changeOrigin:true,		
+		    changeOrigin:true,
 		    headers: {
                   	'host': '0.0.0.0'
               		}
@@ -92,9 +92,9 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 		{
                     context: '/NR/',
                     host: '0.0.0.0',
-                    port: 32769,
+                    port: 32768,
 		    xforward: true,
-		    changeOrigin:true,		
+		    changeOrigin:true,
 		    headers: {
                   	'host': '0.0.0.0'
               		}
@@ -120,7 +120,7 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
               connect.static(appConfig.app));
 		middlewares.push(proxySnippet);
 		return middlewares;
-           
+
           }
         }
       },
@@ -250,7 +250,7 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {

@@ -14,7 +14,6 @@ angular.module('mnbikewaysMap').controller('findLocationCtlr', ['$scope', '$wind
               attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             })]
           });
-        }
-      );
+        });
 }
 ]);

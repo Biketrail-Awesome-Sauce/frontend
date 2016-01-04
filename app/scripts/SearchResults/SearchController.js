@@ -5,7 +5,7 @@ angular.module('mnbikewaysMap').controller('searchCtlr', ['$scope', 'mnSearchFac
       $scope.searchBiketrails = function(val) {
 
 	return mnSearchFactory.searchBackend(val, $scope.latitude, $scope.longitude);
-}
+};
 
         $scope.selectedFromSearch = new Array();
         $scope.onSelect = function($item, $model, $label) {
@@ -13,4 +13,11 @@ angular.module('mnbikewaysMap').controller('searchCtlr', ['$scope', 'mnSearchFac
             $scope.selectedFromSearch.push($item);
           }
         };
+        if($scope.selectedFromSearch.length==1){
+          $scope.searchUrl = "views/searchbox2.html";
+        }else{
+          $scope.searchUrl = "views/searchbox1.html";
+        }
+
+
       }]);
