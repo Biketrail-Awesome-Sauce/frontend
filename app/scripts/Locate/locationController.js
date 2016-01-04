@@ -14,6 +14,10 @@ angular.module('mnbikewaysMap').controller('findLocationCtlr', ['$scope', '$wind
               attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             })]
           });
+
+        $scope.centerMarker = L.marker([$scope.latitude, $scope.longitude]);
+          $scope.centerMarker.addTo($window.map);
+        $scope.markers = new L.FeatureGroup([$scope.centerMarker]);
         });
 }
 ]);

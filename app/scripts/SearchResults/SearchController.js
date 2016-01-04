@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('mnbikewaysMap').controller('searchCtlr', ['$scope', 'mnSearchFactory', function($scope, mnSearchFactory) {
+angular.module('mnbikewaysMap').controller('searchCtlr', ['$scope', '$window', 'mnSearchFactory', 'addMarkersToMap',
+  function($scope, $window, mnSearchFactory, addMarkersToMap) {
 
       $scope.searchBiketrails = function(val) {
 
@@ -12,6 +13,9 @@ angular.module('mnbikewaysMap').controller('searchCtlr', ['$scope', 'mnSearchFac
           if ($scope.selectedFromSearch.length != 2) {
             $scope.selectedFromSearch.push($item);
           }
+          $scope.marker1= L.marker([$scope.selectedFromSearch[0].lat, $scope.selectedFromSearch[0].lon]);
+          $scope.markers.addLayer($scope.marker1);
+          addMarkersToMap.addtoMap($scope.marker1, $scope.markers.getBounds())
         };
         if($scope.selectedFromSearch.length==1){
           $scope.searchUrl = "views/searchbox2.html";
